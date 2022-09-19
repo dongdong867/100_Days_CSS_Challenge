@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: auto;
+            background-color: rgb(46, 46, 46);
+            border-radius: 1.5%;
+            overflow: hidden;
+        }
+
+        .circleBox {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 150px;
+            left: 150px;
+            fill: transparent;
+            stroke: rgb(238, 210, 56);
+            stroke-width: 50;
+            stroke-dasharray: 160;
+            animation: circle-animate 0.35s infinite alternate;
+        }
+
+        .eye {
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            fill: rgb(46, 46, 46);
+            animation: eye-animate 0.35s infinite alternate;
+        }
+
+        .dots {
+            width: 300px;
+            height: 20px;
+            position: absolute;
+            stroke: rgb(238, 210, 56);
+            fill: transparent;
+            stroke-width: 15px;
+            stroke-dasharray: 0px 50px;
+            stroke-dashoffset: 10;
+            stroke-linecap: round;
+            left: 150px;
+            top: 190px;
+            animation: dots-animate 0.7s infinite linear;
+        }
+
+        @keyframes circle-animate {
+            0% {
+                stroke-dashoffset: 0;
+                transform: rotate(0deg);
+            }
+
+            100% {
+                stroke-dashoffset: 40;
+                transform: rotate(40deg);
+            }
+        }
+
+        @keyframes eye-animate {
+            0% {
+                top: 167px;
+                left: 203px;
+            }
+
+            100% {
+                top: 163px;
+                left: 197px;
+            }
+        }
+
+        @keyframes dots-animate {
+            0% {
+                stroke-dashoffset: 0;
+            }
+
+            100% {
+                stroke-dashoffset: 48;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <svg class="circleBox">
+            <circle r="25px" cx="50px" cy="50px"></circle>
+        </svg>
+        <svg class="eye">
+            <circle r="6px" cx="6px" cy="6px"></circle>
+        </svg>
+        <svg class="dots">
+            <polyline points="10 10, 300 10"></polyline>
+        </svg>
+    </div>
+</body>
+
+</html>

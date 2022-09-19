@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            border-radius: 1.5%;
+            background-color: rgb(199, 214, 225);
+        }
+
+        .alert {
+            width: 240px;
+            height: 160px;
+            background-color: #FFFFFF;
+            border-radius: 1.5%;
+            position: absolute;
+            top: 120px;
+            left: 110px;
+            overflow: hidden;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+            font-family: 'Open Sans';
+            transform: scale(.9);
+            animation: show-animate 1.5s forwards;
+        }
+
+        .number {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 2px;
+            left: 225px;
+            font-size: 13px;
+            color: #FFFFFF;
+        }
+
+        .title {
+            width: 240px;
+            text-align: center;
+            position: relative;
+            margin: auto;
+            top: -130px;
+            font-size: 14px;
+            color: rgb(108, 119, 133);
+            font-weight: bold;
+        }
+
+        .content {
+            width: 200px;
+            position: relative;
+            top: -115px;
+            text-align: center;
+            font-size: 12px;
+            margin: auto;
+            color: rgb(140, 151, 166);
+        }
+
+        .button {
+            width: 240px;
+            height: 40px;
+            background-color: rgb(63, 167, 251);
+            position: relative;
+            top: -85px;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        .hide {
+            animation: hide-animate 2s forwards;
+        }
+
+        .alert1 {
+            z-index: 1;
+        }
+
+        @keyframes hide-animate {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(.9);
+            }
+        }
+
+        @keyframes show-animate {
+            0% {
+                opacity: 0;
+                transform: scale(.9);
+            }
+
+            50% {
+                opacity: 0;
+                transform: scale(.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.button1').click(function () {
+                $('.alert1').addClass('hide');
+                $('.alert1').css('z-index', 2)
+                $('.alert2').removeClass('hide');
+                $('.alert2').css('z-index', 3);
+            });
+        });
+
+        $(document).ready(function () {
+            $('.button2').click(function () {
+                $('.alert2').addClass('hide');
+                $('.alert2').css('z-index', 2)
+                $('.alert3').removeClass('hide');
+                $('.alert3').css('z-index', 3);
+            });
+        });
+
+        $(document).ready(function () {
+            $('.button3').click(function () {
+                $('.alert3').addClass('hide');
+                $('.alert3').css('z-index', 2)
+                $('.alert1').removeClass('hide');
+                $('.alert1').css('z-index', 3);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="container">
+            <div class="alert alert1">
+                <svg style="fill: rgb(131, 145, 160);">
+                    <polyline points="200 0, 240 40, 240 0"></polyline>
+                </svg>
+                <div class="number">1</div>
+                <div class="title">The couch</div>
+                <div class="content">If you want to grow, get outside your comfort zone.</div>
+                <div class="button button1">OK</div>
+            </div>
+            <div class="alert alert2 hide">
+                <svg style="fill: rgb(131, 145, 160);">
+                    <polyline points="200 0, 240 40, 240 0"></polyline>
+                </svg>
+                <div class="number">2</div>
+                <div class="title">Failing is learning</div>
+                <div class="content">Pick yourself up, dust yourself off, and start again.</div>
+                <div class="button button2">OK</div>
+            </div>
+            <div class="alert alert3 hide">
+                <svg style="fill: rgb(131, 145, 160);">
+                    <polyline points="200 0, 240 40, 240 0"></polyline>
+                </svg>
+                <div class="number">3</div>
+                <div class="title">Flowers and rainbows</div>
+                <div class="content">Always be yourself,<br> unless you can be a unicorn.</div>
+                <div class="button button3">OK</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

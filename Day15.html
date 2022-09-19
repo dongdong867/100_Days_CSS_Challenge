@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            background-image: linear-gradient(to top right, #5390AB, #6C9E62);
+            border-radius: 1.5%;
+            margin: auto;
+            position: relative;
+        }
+
+        .container {
+            width: 300px;
+            height: 260px;
+            background-color: #FFFFFF;
+            position: relative;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 1%;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, .3);
+        }
+
+        .titleBar {
+            width: 300px;
+            height: 50px;
+            border-bottom: 1px solid rgba(0, 0, 0, .2);
+        }
+
+        .title {
+            text-align: center;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Open Sans';
+        }
+
+        .dragBox {
+            width: 100px;
+            height: 80px;
+            border: 1px dashed rgba(0, 0, 0, .2);
+            position: relative;
+            margin: auto;
+            top: 35%;
+            transform: translateY(-65%);
+        }
+
+        .drag-in {
+            background-color: rgba(0, 0, 0, .1);
+        }
+
+        .button {
+            width: 140px;
+            height: 40px;
+            background-color: rgb(134, 204, 83);
+            position: relative;
+            margin: auto;
+            top: 35%;
+            transform: translateY(-65%);
+            border-bottom: 2px solid rgb(90, 138, 54);
+            border-radius: 3px;
+            transition: box-shadow 0.4s;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            box-shadow: 0 0 12px rgb(134, 204, 83);
+        }
+
+        .buttonText {
+            font-size: 15px;
+            font-family: 'Open Sans';
+            color: #FFFFFF;
+            text-align: center;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .icon {
+            width: 50px;
+            height: 30px;
+            background-image: url(https://100dayscss.com/codepen/upload.svg);
+            background-repeat: no-repeat;
+            position: relative;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            z-index: 5;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('label').on('drag dragstart dragend dragenter dragover dragleave drop', function (eveent) {
+                event.preventDefault();
+                event.stopPropagation();
+            }).on('dragenter dragstart dragover', function () {
+                $('dragBox').addClass('drag-in');
+            }).on('dragend dragleave', function () {
+                $('dragBox').removeClass('drag-in');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="container">
+            <div class="titleBar">
+                <div class="title">Drop file to upload</div>
+            </div>
+            <div class="dragBox">
+                <label class="input" style="cursor: default;">
+                    <input type="file" style="display: none;">
+                    <div class="icon"></div>
+                    <span class="filename"></span>
+                </label>
+            </div>
+            <div class="button">
+                <label class="input">
+                    <input type="file" style="display: none;">
+                </label>
+                <div class="buttonText">Upload file</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

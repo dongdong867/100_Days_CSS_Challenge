@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(28, 34, 54);
+            border-radius: 5px;
+            position: relative;
+            margin: auto;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, .1);
+            z-index: 1;
+            overflow: hidden;
+            margin-top: 100px;
+        }
+
+        .bottom {
+            width: 400px;
+            height: 100px;
+            background-color: #FFFFFF;
+            position: relative;
+            top: 100%;
+            transform: translateY(-100%);
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(59, 69, 101);
+            font-weight: lighter;
+            font-family: 'Open Sans';
+        }
+
+        .tempurature {
+            font-size: 50px;
+        }
+
+        .information {
+            margin-left: 15px;
+        }
+
+        .report {
+            margin-left: 65px;
+            text-align: right;
+        }
+
+        .sky {
+            position: absolute;
+            width: 400px;
+            height: 300px;
+        }
+
+        .moon {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background-color: rgb(244, 237, 194);
+            border-radius: 50%;
+            margin-top: 40px;
+            margin-left: 40px;
+            box-shadow: 0px 0px 13px rgba(244, 237, 194, .6);
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .moonDot {
+            position: absolute;
+            background-color: rgb(234, 225, 174);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .bigDot {
+            width: 13px;
+            height: 13px;
+        }
+
+        .normalDot {
+            width: 6px;
+            height: 6px;
+        }
+
+        .smallDot {
+            width: 4px;
+            height: 4px;
+        }
+
+        .darkCloud {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            background-color: rgb(40, 49, 77);
+            border-radius: 50%;
+        }
+
+        .darkL {
+            margin-top: 200px;
+            margin-left: -70px;
+        }
+
+        .darkR {
+            margin-top: 190px;
+            margin-left: 180px;
+        }
+
+        .lightCloud {
+            position: absolute;
+            background-color: rgb(50, 60, 91);
+            border-radius: 50%;
+        }
+
+        .lightL {
+            width: 300px;
+            height: 200px;
+            margin-top: 230px;
+            margin-left: -150px;
+        }
+
+        .lightM {
+            width: 300px;
+            height: 200px;
+            margin-top: 210px;
+            margin-left: 70px;
+        }
+
+        .lightR {
+            width: 200px;
+            height: 200px;
+            margin-top: 250px;
+            margin-left: 300px;
+        }
+
+        .rain {
+            position: relative;
+            margin-top: 15px;
+            animation-name: drop;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+
+        .upperCircleB {
+            position: relative;
+            transform: rotate(20deg);
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background-color: rgb(142, 191, 244);
+            margin-left: 4.5px;
+        }
+
+        .middleRainB {
+            position: relative;
+            transform: rotate(20deg);
+            width: 2px;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-bottom: 8px solid rgb(142, 191, 244);
+            margin-top: -1px;
+            animation-name: middleB;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+
+        .bottomCircleB {
+            position: relative;
+            transform: rotate(20deg);
+            width: 8px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: rgb(142, 191, 244);
+            margin-top: -2.7px;
+            margin-left: -1.7px;
+            animation-name: bottomB;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes drop {
+            90% {
+                margin-top: 305px;
+            }
+
+            100% {
+                margin-top: 310px;
+                margin-left: 20px;
+            }
+        }
+
+        @keyframes middleB {
+            70% {
+                width: 2px;
+            }
+
+            80% {
+                width: 5px;
+            }
+
+            100% {
+                width: 5px;
+            }
+        }
+
+        @keyframes bottomB {
+            60% {
+                width: 7.8px;
+                height: 7px;
+                margin-left: -1.6px;
+            }
+
+            80% {
+                margin-left: -4px;
+                transform: rotate(0deg);
+            }
+
+            97% {
+                width: 25px;
+                height: 10px;
+            }
+
+            100% {
+                width: 23px;
+                height: 10px;
+                margin-left: -5px;
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="sky">
+            <div class="moon">
+                <div class="moonDot bigDot" style="margin-top: 10px; margin-left: 30px;"></div>
+                <div class="moonDot bigDot" style="margin-top: 15px;"></div>
+                <div class="moonDot bigDot" style="margin-top: 57px; margin-left: 10px;"></div>
+                <div class="moonDot normalDot" style="margin-top: 40px; margin-left: 20px;"></div>
+                <div class="moonDot normalDot" style="margin-top: 30px; margin-left: 30px;"></div>
+                <div class="moonDot normalDot" style="margin-top: 20px; margin-left: 48px;"></div>
+                <div class="moonDot normalDot" style="margin-top: 40px; margin-left: 50px;"></div>
+                <div class="moonDot normalDot" style="margin-top: 25px; margin-left: 64px;"></div>
+                <div class="moonDot normalDot" style="margin-top: 57px; margin-left: 35px;"></div>
+                <div class="moonDot smallDot" style="margin-top: 27px; margin-left: 17px;"></div>
+                <div class="moonDot smallDot" style="margin-top: 40px; margin-left: 40px;"></div>
+            </div>
+            <div class="darkCloud darkL"></div>
+            <div class="darkCloud darkR"></div>
+            <div class="lightCloud lightL"></div>
+            <div class="lightCloud lightM"></div>
+            <div class="lightCloud lightR"></div>
+            <div class="rain" style="margin-left: 50px;">
+                <div class="upperCircleB"></div>
+                <div class="middleRainB"></div>
+                <div class="bottomCircleB"></div>
+            </div>
+            <div class="rain" style="margin-left: 100px;">
+                <div class="upperCircleB"></div>
+                <div class="middleRainB"></div>
+                <div class="bottomCircleB"></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="tempurature">12º</div>
+            <div class="information">
+                Wind: E 7 km/h <br>
+                Humidity: 87%
+            </div>
+            <div class="report">
+                TUE <b style="margin-left: 10px;">21º / 9º</b><br>
+                WED <b>23º / 10º</b>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

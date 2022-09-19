@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:800,300);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            border-radius: 1.5%;
+            background-color: rgb(230, 115, 112);
+            margin: auto;
+        }
+
+        .container {
+            width: 300px;
+            height: 140px;
+            margin: auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: #FFFFFF;
+            font-family: 'Open Sans';
+            ;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .small {
+            height: 25px;
+            font-size: 30px;
+            line-height: 1;
+        }
+
+        .big {
+            height: 65px;
+            font-size: 50px;
+            font-weight: 800;
+            overflow: hidden;
+        }
+
+        .circle {
+            width: 400px;
+            height: 400px;
+            fill: #FFFFFF;
+            position: absolute;
+            top: -4px;
+            animation: circle-animate 1s forwards;
+        }
+
+        .line {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: -4px;
+            left: 50px;
+            stroke: #FFFFFF;
+            stroke-width: 4px;
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: line-animate 1s forwards linear;
+            animation-delay: 1s;
+        }
+
+        .left {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: -2px;
+            left: 50px;
+            stroke: #FFFFFF;
+            stroke-width: 4px;
+            fill: transparent;
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: side-animate 1.5s forwards linear;
+            animation-delay: 2s;
+        }
+
+        .right {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: -2px;
+            left: 50px;
+            stroke: #FFFFFF;
+            stroke-width: 4px;
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            fill: transparent;
+            animation: side-animate 1.5s forwards linear;
+            animation-delay: 2s;
+        }
+
+        .moments {
+            animation: moments-animate 0.5s forwards;
+            animation-delay: 1.5s;
+        }
+
+        .collect {
+            opacity: 0;
+            animation: collect-animate 0.5s forwards;
+            animation-delay: 4s;
+        }
+
+        .notthings {
+            opacity: 0;
+            animation: notthings-animate 0.5s forwards;
+            animation-delay: 4s;
+        }
+
+        .redbox {
+            width: 280px;
+            height: 21px;
+            margin: auto;
+            background-color: rgb(230, 115, 112);
+            position: absolute;
+            left: 10px;
+        }
+
+        .up {
+            top: 40px;
+            animation: up-animate 0.5s forwards;
+            animation-delay: 3.5s;
+        }
+
+        .down {
+            top: 60px;
+            animation: down-animate 0.5s forwards;
+            animation-delay: 3.5s;
+        }
+
+        @keyframes circle-animate {
+            30% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        @keyframes line-animate {
+            0% {
+                stroke-dashoffset: 200;
+            }
+
+            50% {
+                stroke-dashoffset: 0;
+            }
+
+            100% {
+                stroke-dashoffset: -200;
+            }
+        }
+
+        @keyframes side-animate {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes collect-animate {
+            0% {
+                margin-left: -50px;
+                opacity: 0;
+            }
+
+            100% {
+                margin-left: 0px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes notthings-animate {
+            0% {
+                margin-left: 50px;
+                opacity: 0;
+            }
+
+            100% {
+                margin-left: 0px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes up-animate {
+            0% {
+                top: 40px;
+                transform: scaleY(1);
+            }
+
+            100% {
+                top: 0px;
+                transform: scaleY(0);
+            }
+        }
+
+        @keyframes down-animate {
+            0% {
+                top: 60px;
+                transform: scaleY(1);
+            }
+
+            100% {
+                top: 100px;
+                transform: scaleY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="container">
+            <div class="small collect">COLLECT</div>
+            <div class="moments big">MOMENTS</div>
+            <div class="redbox up"></div>
+            <div class="redbox down"></div>
+            <div class="notthings small">NOT THINGS</div>
+        </div>
+        <svg class="circle">
+            <circle r="26" cx="200px" cy="200px"></circle>
+        </svg>
+        <svg class="line">
+            <polyline points="170 200, 35 200"></polyline>
+        </svg>
+        <svg class="line">
+            <polyline points="170 200, 325 200"></polyline>
+        </svg>
+        <svg class="left">
+            <polyline points="35 200, 35 165, 55 165"></polyline>
+        </svg>
+        <svg class="left">
+            <polyline points="35 200, 35 235, 55 235"></polyline>
+        </svg>
+        <svg class="right">
+            <polyline points="325 200, 325 165, 305 165"></polyline>
+        </svg>
+        <svg class="right">
+            <polyline points="325 200, 325 235, 305 235"></polyline>
+        </svg>
+    </div>
+</body>
+
+</html>

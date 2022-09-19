@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            background-image: linear-gradient(to bottom, #2D3F4C, #202E37);
+            border-radius: 1.5%;
+        }
+
+        .container {
+            width: 260px;
+            height: 400px;
+            margin: auto;
+            color: #FFFFFF;
+            text-align: center;
+            font-family: 'Open Sans';
+        }
+
+        .title {
+            width: 260px;
+            height: 70px;
+            font-size: 15px;
+            font-weight: 300;
+            position: relative;
+            padding-top: 50px;
+        }
+
+        .big {
+            font-size: 23px;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .cal {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            position: relative;
+            border-radius: 50%;
+            border: 10px solid rgb(31, 42, 50);
+            text-align: center;
+            color: rgb(107, 128, 144);
+            font-size: 15px;
+            line-height: 1.2;
+        }
+
+        .calouter {
+            width: 120%;
+            height: 120%;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            fill: transparent;
+            stroke: rgb(109, 222, 177);
+            stroke-width: 10px;
+            stroke-dasharray: 350;
+            stroke-dashoffset: 70;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            animation: bigborder-animate 2s forwards;
+        }
+
+        .calnumber {
+            font-size: 25px;
+            position: relative;
+            padding-top: 25px;
+            color: #FFFFFF;
+        }
+
+        .move {
+            width: 240px;
+            height: 80px;
+            margin: auto;
+            position: relative;
+            top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottomcircle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 6px solid rgb(31, 42, 50);
+            margin: 20px;
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.2;
+            color: rgb(107, 128, 144);
+        }
+
+        .numbers {
+            font-size: 17px;
+            padding-top: 18px;
+            color: #FFFFFF;
+        }
+
+        .outer {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            fill: transparent;
+            stroke: rgb(130, 222, 234);
+            stroke-width: 6px;
+            stroke-dasharray: 250;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+        }
+
+        .stepsouter {
+            top: 0px;
+            left: 20px;
+            stroke-dashoffset: 100;
+            animation: smallborder-animate 2s forwards;
+        }
+
+        .kmouter {
+            top: 0px;
+            left: 140px;
+            stroke-dashoffset: 160;
+            animation: smallborder-animate 2s forwards;
+        }
+
+        @keyframes smallborder-animate {
+            0% {
+                stroke-dashoffset: 260;
+            }
+        }
+
+        @keyframes bigborder-animate {
+            0% {
+                stroke-dashoffset: 360;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="container">
+            <div class="title">YOUR DAILY<br><span class="big">PROGRESS</span></div>
+            <div class="cal">
+                <svg class="calouter">
+                    <circle r="55" cx="60px" cy="60px"></circle>
+                </svg>
+                <div class="calnumber">2758</div>
+                kcal
+            </div>
+            <div class="move">
+                <div class="steps bottomcircle">
+                    <svg class="stepsouter outer">
+                        <circle r="37" cx="40px" cy="40px"></circle>
+                    </svg>
+                    <div class="numbers">8563</div>
+                    steps
+                </div>
+                <div class="km bottomcircle">
+                    <svg class="kmouter outer">
+                        <circle r="37" cx="40px" cy="40px"></circle>
+                    </svg>
+                    <div class="numbers">6,2</div>
+                    km
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

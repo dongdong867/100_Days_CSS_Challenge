@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+        integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300,300italic);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(106, 180, 218);
+            border-radius: 2%;
+            position: relative;
+            margin: auto;
+            font-family: 'Open Sans';
+        }
+
+        .quotation {
+            font-size: 250px;
+            font-family: Arial;
+            letter-spacing: -30px;
+            color: rgb(128, 192, 223);
+            position: absolute;
+            margin-top: -135px;
+            z-index: 0;
+        }
+
+        .content {
+            width: 340px;
+            color: #FFFFFF;
+            font-size: 25px;
+            font-weight: 300;
+            line-height: 1.4;
+            position: relative;
+            top: 55%;
+            transform: translateY(-50%);
+            margin: auto;
+        }
+
+        .name {
+            color: #FFFFFF;
+            font-weight: 300;
+            font-style: italic;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .definition {
+            background-color: rgb(61, 110, 135);
+            padding: 3px;
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-bottom: 5px;
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+        .floatingbox {
+            width: 290px;
+            height: 140px;
+            position: absolute;
+            margin-top: -280px;
+            margin-left: 13%;
+            font-family: 'Open Sans';
+            visibility: hidden;
+            animation: backward 0.5s linear forwards;
+        }
+
+        .animate {
+            animation: float 0.5s linear forwards;
+        }
+
+        .floatingtop {
+            height: 30px;
+            background-color: #FFFFFF;
+            padding-left: 15px;
+            display: flex;
+            position: relative;
+            align-items: center;
+            color: rgb(61, 110, 135);
+        }
+
+        .floatingmiddle {
+            height: 100px;
+            background-color: rgb(61, 110, 135);
+            color: #FFFFFF;
+
+        }
+
+        .floatingbottom {
+            width: 0;
+            height: 0;
+            margin: auto;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid rgb(61, 110, 135);
+
+        }
+
+        .icon {
+            margin-left: 10px;
+            margin-top: 2px;
+            font-size: 13px;
+        }
+
+        .icon:hover {
+            font-size: 14px;
+        }
+
+        .floatingContent {
+            width: 260px;
+            height: 80px;
+            position: relative;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 1.6;
+        }
+
+        @keyframes float {
+            0% {
+                visibility: hidden;
+                margin-top: -260px;
+                opacity: 0;
+            }
+
+            100% {
+                visibility: visible;
+                margin-top: -240px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes backward {
+            0% {
+                visibility: visible;
+                margin-top: -240px;
+                opacity: 1;
+            }
+
+            100% {
+                visibility: hidden;
+                margin-top: -260px;
+                opacity: 0;
+            }
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.definition').mouseover(function () {
+                $('.floatingbox').toggleClass('animate');
+            });
+        });
+        $(document).ready(function () {
+            $('.definition').mouseleave(function () {
+                $('.floatingbox').toggleClass('animate');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="quotation">,,</div>
+        <div class="content">
+            I know quite certainly that I myself have no special talent; curiosity, <span
+                class="definition">obsession</span>
+            and dogged endurance, combined with self-criticism have brought me to my ideas.
+            <div class="name">Albert Einstein</div>
+        </div>
+        <div class="floatingbox">
+            <div class="floatingtop">
+                <div>[əb'seʃ(ə)n]</div>
+                <div class="fa fa-volume-up icon"></div>
+            </div>
+            <div class="floatingmiddle">
+                <div class="floatingContent"><b>Obsession</b>, a persistent disturbing preoccupation with an often
+                    unreasonable idea or feeling.</div>
+            </div>
+            <div class="floatingbottom"></div>
+        </div>
+    </div>
+</body>
+
+</html>

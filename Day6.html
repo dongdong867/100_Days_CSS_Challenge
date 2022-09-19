@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            background-image: linear-gradient(to top right, #E5BE77, #BF8057);
+            border-radius: 2%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 325px;
+            height: 300px;
+            background-color: #FFFFFF;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 1%;
+            display: flex;
+        }
+
+        .leftBox {
+            width: 200px;
+            height: 300px;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .selfPhoto {
+            width: 86px;
+            height: 86px;
+            position: relative;
+            margin: auto;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .selfPhoto .outerBorder,
+        .selfPhoto:hover .innerBorder {
+            animation-name: spinningRev;
+            animation-duration: 2s;
+        }
+
+        .selfPhoto:hover .outerBorder,
+        .selfPhoto .innerBorder {
+            animation-name: spinning;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+
+        .outerBorder {
+            width: 86px;
+            height: 86px;
+            position: absolute;
+            margin-top: -1px;
+            border-radius: 50%;
+            border: 1px solid rgb(117, 107, 82);
+            border-right-color: #FFFFFF;
+        }
+
+        .innerBorder {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            margin-top: 2px;
+            margin-left: 2px;
+            border-radius: 50%;
+            border: 1px solid rgb(117, 107, 82);
+            border-left-color: #FFFFFF;
+        }
+
+        .photo {
+            border-radius: 50%;
+            width: 75px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .name {
+            font-family: 'Open Sans';
+            font-weight: 600;
+            color: rgb(125, 109, 91);
+        }
+
+        .smallWords {
+            font-family: "Open Sans";
+            font-size: 11px;
+            color: rgb(125, 109, 91);
+            margin-bottom: 30px;
+        }
+
+        .button {
+            width: 110px;
+            font-size: 12px;
+            font-weight: 900;
+            border: 1px solid rgb(117, 107, 82);
+            color: rgb(117, 107, 82);
+            margin: auto;
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 30px;
+            cursor: default;
+        }
+
+        .button:hover {
+            animation-name: buttonHover;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        .rightBox {
+            width: 125px;
+            background-color: rgb(244, 232, 224);
+            color: rgb(125, 109, 91);
+            font-family: 'Open Sans';
+        }
+
+        .info {
+            width: 125px;
+            height: 99px;
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .info:hover {
+            animation-name: infoHover;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        .middle {
+            border: 1px solid #FFFFFF;
+            border-left-width: 0px;
+            border-right-width: 0px;
+        }
+
+        .center {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .numbers {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: -8px;
+        }
+
+        @keyframes spinning {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinningRev {
+            0% {
+                transform: rotate(360deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes buttonHover {
+            100% {
+                background-color: rgb(117, 107, 82);
+                color: #FFFFFF;
+            }
+        }
+
+        @keyframes infoHover {
+            100% {
+                background-color: rgb(222, 208, 196);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="container">
+            <div class="leftBox">
+                <div class="selfPhoto">
+                    <div class="outerBorder"></div>
+                    <div class="innerBorder"></div>
+                    <img src="https://100dayscss.com/codepen/jessica-potter.jpg" class="photo">
+                </div>
+                <div class="name">Jessica Potter</div>
+                <div class="smallWords">Visual Artist</div>
+                <div class="button">Follow</div>
+                <div class="button">Message</div>
+            </div>
+            <div class="rightBox">
+                <div class="info">
+                    <div class="center numbers">523</div>
+                    <div class="center smallWords">Posts</div>
+                </div>
+                <div class="middle info">
+                    <div class="center numbers">1387</div>
+                    <div class="center smallWords">Likes</div>
+                </div>
+                <div class="info">
+                    <div class="center numbers">146</div>
+                    <div class="center smallWords">Followers</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

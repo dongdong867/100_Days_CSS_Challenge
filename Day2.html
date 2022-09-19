@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 DAYS CSS CHALLANGE #2</title>
+    <script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: #60AD85;
+            border-radius: 2%;
+            margin: auto;
+        }
+
+        .container {
+            top: 50%;
+            transform: translateY(-50%);
+            position: relative;
+        }
+
+        .container:hover,
+        .container-rev:hover {
+            cursor: pointer;
+        }
+
+        .line {
+            width: 75px;
+            height: 7px;
+            background-color: #FFFFFF;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+            border-radius: 3px;
+        }
+
+        .one {
+            margin-bottom: 15px;
+            animation-name: upperline-rev;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .two {
+            animation-name: middleline-rev;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .three {
+            margin-top: 15px;
+            animation-name: bottomline-rev;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .one.rev {
+            animation-name: upperline;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .two.rev {
+            animation-name: middleline;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .three.rev {
+            animation-name: bottomline;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes upperline {
+            0% {
+                transform: rotate(0deg);
+                margin-bottom: 15px;
+            }
+
+            40% {
+                margin-bottom: -8px;
+                transform: rotate(0deg);
+            }
+
+            50% {
+                margin-bottom: -8px;
+                transform: rotate(0deg);
+            }
+
+            100% {
+                margin-bottom: -8px;
+                transform: rotate(45deg);
+            }
+        }
+
+        @keyframes middleline {
+            0% {
+                visibility: visible;
+            }
+
+            50% {
+                visibility: hidden;
+            }
+
+            100% {
+                visibility: hidden;
+            }
+        }
+
+        @keyframes bottomline {
+            0% {
+                transform: rotate(0deg);
+                margin-top: 15px;
+            }
+
+            40% {
+                transform: rotate(0deg);
+                margin-top: -8px;
+            }
+
+            50% {
+                transform: rotate(0deg);
+                margin-top: -8px;
+            }
+
+            100% {
+                transform: rotate(135deg);
+                margin-top: -8px;
+            }
+        }
+
+        @keyframes upperline-rev {
+            0% {
+                margin-bottom: -8px;
+                transform: rotate(45deg);
+            }
+
+            40% {
+                margin-bottom: -8px;
+                transform: rotate(0deg);
+            }
+
+            50% {
+                margin-bottom: -8px;
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+                margin-bottom: 15px;
+            }
+        }
+
+        @keyframes middleline-rev {
+            0% {
+                visibility: hidden;
+            }
+
+            50% {
+                visibility: hidden;
+            }
+
+            100% {
+                visibility: visible;
+            }
+        }
+
+        @keyframes bottomline-rev {
+            0% {
+                transform: rotate(135deg);
+                margin-top: -8px;
+            }
+
+            40% {
+                transform: rotate(0deg);
+                margin-top: -8px;
+            }
+
+            50% {
+                transform: rotate(0deg);
+                margin-top: -8px;
+            }
+
+            100% {
+                transform: rotate(0deg);
+                margin-top: 15px;
+            }
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.container').click(function () {
+                $('.one').toggleClass('rev');
+                $('.two').toggleClass('rev');
+                $('.three').toggleClass('rev');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box" id="box">
+        <div class="container" id="button" tabindex="0">
+            <div class="line one"></div>
+            <div class="line two"></div>
+            <div class="line three"></div>
+        </div>
+    </div>
+</body>
+
+</html>

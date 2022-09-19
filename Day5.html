@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(96, 165, 160);
+            margin: auto;
+            border-radius: 2%;
+            margin-top: 55px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .square {
+            width: 300px;
+            height: 250px;
+            background-color: #FFFFFF;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, .5);
+            border-radius: 2%;
+        }
+
+        .upperBox {
+            width: 300px;
+            height: 65px;
+            background-color: rgb(232, 188, 113);
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .words {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .leftBox {
+            padding-right: 50px;
+            margin-top: -8px;
+        }
+
+        .rightBox {
+            padding-left: 50px;
+        }
+
+        .bigWords {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .smallWords {
+            font-size: 10px;
+        }
+
+        .keys {
+            display: flex;
+            width: 290px;
+            height: 40px;
+            align-items: center;
+            justify-content: right;
+        }
+
+        .bar {
+            width: 10px;
+            height: 3px;
+            border-radius: 3px;
+            margin-right: 7px;
+            margin-left: 20px;
+        }
+
+        .red {
+            background-color: rgb(233, 123, 119);
+        }
+
+        .blue {
+            background-color: rgb(131, 161, 300);
+        }
+
+        .keywords {
+            font-size: 10px;
+            color: rgb(139, 139, 139);
+        }
+
+        .graph {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .line {
+            width: 260px;
+            height: 1px;
+            background-color: rgb(230, 230, 230);
+            margin: auto;
+        }
+
+        .graphBox {
+            width: 300px;
+            height: 50px;
+            display: flex;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .mon {
+            margin-left: 30px;
+        }
+
+        .tue {
+            margin-left: 70px;
+        }
+
+        .wed {
+            margin-left: 110px;
+        }
+
+        .thu {
+            margin-left: 150px;
+        }
+
+        .fri {
+            margin-left: 190px;
+        }
+
+        .sat {
+            margin-left: 230px;
+        }
+
+        .sun {
+            margin-left: 270px;
+        }
+
+        .monR {
+            margin-top: 2px;
+        }
+
+        .monB {
+            margin-top: 20px;
+        }
+
+        .tueR {
+            margin-top: 10px;
+        }
+
+        .tueB {
+            margin-top: 8px;
+        }
+
+        .wedR {
+            margin-top: 20px;
+        }
+
+        .wedB {
+            margin-top: 25px;
+        }
+
+        .thuR {
+            margin-top: 8px;
+        }
+
+        .thuB {
+            margin-top: 15px;
+        }
+
+        .friR {
+            margin-top: 45px;
+        }
+
+        .friB {
+            margin-top: 20px;
+        }
+
+        .satR {
+            margin-top: 4px;
+        }
+
+        .satB {
+            margin-top: 40px;
+        }
+
+        .sunR {
+            margin-top: 18px
+        }
+
+        .sunB {
+            margin-top: 25px;
+        }
+
+        .mtR {
+            width: 62px;
+            height: 2px;
+            margin-top: 34px;
+            margin-left: 22px;
+            transform: rotate(133deg);
+        }
+
+        .twR {
+            width: 40px;
+            height: 2px;
+            margin-top: 17px;
+            margin-left: -10px;
+            transform: rotate(15deg);
+        }
+
+        .wtR {
+            width: 42px;
+            height: 2px;
+            margin-top: 16px;
+            margin-left: 0px;
+            transform: rotate(163deg);
+        }
+
+        .tfR {
+            width: 55px;
+            height: 2px;
+            margin-top: 29px;
+            margin-left: -10px;
+            transform: rotate(43deg);
+        }
+
+        .fsR {
+            width: 40px;
+            height: 2px;
+            margin-top: 52px;
+            margin-left: -8px;
+            transform: rotate(14deg);
+        }
+
+        .ssR {
+            width: 55px;
+            height: 2px;
+            margin-top: 40px;
+            margin-left: -9px;
+            transform: rotate(137deg);
+        }
+
+        .mtB {
+            width: 45px;
+            height: 2px;
+            margin-top: 16px;
+            margin-left: 31px;
+            transform: rotate(164deg);
+        }
+
+        .twB {
+            width: 45px;
+            height: 2px;
+            margin-top: 19px;
+            margin-left: -5px;
+            transform: rotate(24deg);
+        }
+
+        .wtB {
+            width: 43px;
+            height: 2px;
+            margin-top: 22px;
+            margin-left: -3px;
+            transform: rotate(165deg);
+        }
+
+        .tfB {
+            width: 42px;
+            height: 2px;
+            margin-top: 20px;
+            margin-left: -3px;
+            transform: rotate(7deg);
+        }
+
+        .fsB {
+            width: 43px;
+            height: 2px;
+            margin-top: 31px;
+            margin-left: -5px;
+            transform: rotate(28deg);
+        }
+
+        .ssB {
+            width: 43px;
+            height: 2px;
+            margin-top: 36px;
+            margin-left: -3px;
+            transform: rotate(158deg);
+        }
+
+        .day {
+            display: flex;
+            color: rgb(170, 170, 170);
+            font-size: 9px;
+            margin-top: 10px;
+        }
+
+        .firstDay {
+            margin-left: 21px;
+        }
+
+        .space {
+            margin-left: 22px;
+            margin-right: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="container">
+            <div class="square">
+                <div class="upperBox">
+                    <div class="words">
+                        <div class="leftBox">
+                            <div class="bigWords">WEEKLY REPORT</div>
+                            <div class="smallWords">01. Feb - 07. Feb</div>
+                        </div>
+                        <div class="rightBox">
+                            <div class="smallWords">REVENUE</div>
+                            <div class="bigWords">$ 3621.79</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="keys">
+                    <div class="red bar"></div>
+                    <div class="keywords">Views</div>
+                    <div class="blue bar"></div>
+                    <div class="keywords">Purchases</div>
+                </div>
+                <div class="graph">
+                    <div class="line"></div>
+                    <div class="graphBox">
+                        <div class="red dot tue tueR"></div>
+                        <div class="red dot wed wedR"></div>
+                        <div class="red dot thu thuR"></div>
+                        <div class="red dot fri friR"></div>
+                        <div class="red dot sun sunR"></div>
+                        <div class="red mtR"></div>
+                        <div class="red twR"></div>
+                        <div class="red wtR"></div>
+                        <div class="red tfR"></div>
+                        <div class="red fsR"></div>
+                        <div class="red ssR"></div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="graphBox">
+                        <div class="red dot mon monR"></div>
+                        <div class="blue dot mon monB"></div>
+                        <div class="blue dot tue tueB"></div>
+                        <div class="blue dot wed wedB"></div>
+                        <div class="blue dot thu thuB"></div>
+                        <div class="blue dot fri friB"></div>
+                        <div class="red dot sat satR"></div>
+                        <div class="blue dot sat satB"></div>
+                        <div class="blue dot sun sunB"></div>
+                        <div class="blue mtB"></div>
+                        <div class="blue twB"></div>
+                        <div class="blue wtB"></div>
+                        <div class="blue tfB"></div>
+                        <div class="blue fsB"></div>
+                        <div class="blue ssB"></div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="day">
+                        <div class="firstDay">MON</div>
+                        <div class="space">TUE</div>
+                        <div>WED</div>
+                        <div class="space">THU</div>
+                        <div>FRI</div>
+                        <div class="space">SAT</div>
+                        <div>SUN</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

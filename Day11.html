@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            background: -webkit-radial-gradient(circle, #EFE2D0, #D6C0A1);
+            border-radius: 2%;
+            position: relative;
+            margin: auto;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .shoes {
+            width: 400px;
+            height: 150px;
+            position: absolute;
+            margin-top: 112px;
+            z-index: 2;
+        }
+
+        .shoe {
+            position: absolute;
+            background: url('https://100dayscss.com/codepen/doc-martens.svg') center center no-repeat;
+        }
+
+        .left {
+            width: 400px;
+            height: 150px;
+            z-index: 3;
+            animation: leftshoe 2s linear infinite;
+
+        }
+
+        .right {
+            width: 400px;
+            height: 150px;
+            z-index: 4;
+            animation: leftshoe 2s linear infinite;
+            animation-delay: 1s;
+        }
+
+        .floor {
+            width: 400px;
+            height: 150px;
+            background-color: rgb(35, 35, 35);
+            position: absolute;
+            bottom: 0px;
+            z-index: 0;
+        }
+
+        @keyframes leftshoe {
+            0% {
+                transform: rotate(45deg);
+                margin-top: -21px;
+                margin-left: -90px;
+            }
+
+            25% {
+                margin-top: -30px;
+            }
+
+            49% {
+                transform: rotate(-30deg);
+                margin-top: -23px;
+                margin-left: 90px;
+            }
+
+            51% {
+                transform: rotate(-30deg);
+                margin-top: -23px;
+                margin-left: 90px;
+            }
+
+            75% {
+                margin-top: -3px;
+            }
+
+            100% {
+                transform: rotate(45deg);
+                margin-top: -21px;
+                margin-left: -90px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="shoes">
+            <div class="shoe left"></div>
+            <div class="shoe right"></div>
+        </div>
+        <div class="floor"></div>
+    </div>
+</body>
+
+</html>

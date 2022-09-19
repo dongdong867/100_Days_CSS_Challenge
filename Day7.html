@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://use.fontawesome.com/391cce63e9.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(45, 63, 85);
+            margin: auto;
+            border-radius: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 300px;
+            height: 300px;
+            background-color: #FFFFFF;
+            position: absolute;
+            top: 50px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, .4);
+            border-radius: 3px;
+            animation-name: slideIn;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .showMenu {
+            animation-name: slideOut;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .nav {
+            width: 300px;
+            height: 60px;
+            background-color: rgb(109, 151, 200);
+            display: flex;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .sideBarButton {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 20px;
+        }
+
+        .sideBarButton:hover .dot,
+        .sideBarButton:hover .line,
+        .search:hover .handle {
+            background-color: #FFFFFF;
+        }
+
+        .search:hover .glass {
+            border-color: #FFFFFF;
+        }
+
+        .upperSideButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .line {
+            height: 3px;
+            background-color: rgb(187, 217, 252);
+            border-radius: 3px;
+        }
+
+        .short {
+            width: 20px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: rgb(187, 217, 252);
+            border-radius: 50%;
+            margin-left: 3px;
+        }
+
+        .long {
+            width: 30px;
+            margin: auto;
+            margin-top: 8px;
+        }
+
+        .center {
+            width: 150px;
+            height: 60px;
+            margin-left: 20px;
+        }
+
+        .title {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #FFFFFF;
+            font-family: 'Open Sans';
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .search {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+        }
+
+        .searchBox {
+            width: 200px;
+            height: 30px;
+            position: absolute;
+            margin-top: 13px;
+            margin-left: 15px;
+            border-radius: 30px;
+            border: none;
+            padding-left: 20px;
+            color: rgb(102, 102, 102);
+            animation-name: searchboxHide;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        .showSearch {
+            animation-name: searchboxShow;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        .searchBox::placeholder {
+            color: rgb(190, 190, 190);
+        }
+
+        .searchBox:focus {
+            outline: none;
+        }
+
+        .glass {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 3px solid rgb(187, 217, 252);
+            margin-bottom: 5px;
+        }
+
+        .handle {
+            width: 10px;
+            height: 3px;
+            background-color: rgb(187, 217, 252);
+            border-radius: 3px;
+            margin-top: 10px;
+            margin-left: -5px;
+            transform: rotate(45deg);
+        }
+
+        .list {
+            display: flex;
+            justify-content: baseline;
+        }
+
+        .contentLine {
+            width: 3px;
+            height: 240px;
+            background-color: rgb(220, 220, 220);
+            margin-left: 20px;
+        }
+
+        .column {
+            width: 270px;
+            height: 80px;
+            position: relative;
+            color: rgb(102, 102, 102);
+            margin-left: -7.5px;
+        }
+
+        .column:hover {
+            color: rgb(109, 151, 200);
+            cursor: pointer;
+        }
+
+        .white {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 3px solid #FFFFFF;
+            position: absolute;
+            margin-top: -3px;
+            margin-left: -3px;
+        }
+
+        .circle {
+            width: 7px;
+            height: 7px;
+            background-color: #FFFFFF;
+            border: 2.5px solid rgb(109, 151, 200);
+            border-radius: 50%;
+        }
+
+        .first {
+            margin-top: 25px;
+        }
+
+        .contentBox {
+            width: 235px;
+            height: 80px;
+            margin-left: 20px;
+            margin-top: -14px;
+            font-family: 'Open Sans';
+        }
+
+        .time {
+            font-size: 11px;
+        }
+
+        .content {
+            font-size: 15px;
+        }
+
+        .sideBox {
+            width: 300px;
+            height: 270px;
+            background-color: rgb(75, 97, 123);
+            border-radius: 3px;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, .4);
+        }
+
+        .itemContainer {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .navItem {
+            width: 300px;
+            height: 50px;
+            display: flex;
+
+        }
+
+        .navItem:hover {
+            background-color: rgb(63, 81, 103);
+        }
+
+        .icon {
+            margin-top: 9px;
+            margin-left: 20px;
+            color: rgb(154, 177, 202);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .text {
+            width: 70px;
+            height: 20px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-left: 10px;
+            color: rgb(154, 177, 202);
+            font-size: 14px;
+        }
+
+        .profile {
+            margin-left: 22px;
+        }
+
+        @keyframes slideOut {
+            0% {
+                margin-left: 0px;
+            }
+
+            100% {
+                margin-left: 320px;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                margin-left: 320px;
+            }
+
+            100% {
+                margin-left: 0px;
+            }
+        }
+
+        @keyframes searchboxShow {
+            0% {
+                visibility: hidden;
+                margin-left: 40px;
+                background-color: rgba(255, 255, 255, .0);
+            }
+
+            40% {
+                visibility: visible;
+            }
+
+            100% {
+                visibility: visible;
+                margin-left: 15px;
+                background-color: rgba(255, 255, 255, 1);
+            }
+        }
+
+        @keyframes searchboxHide {
+            0% {
+                visibility: visible;
+                margin-left: 15px;
+                background-color: rgb(255, 255, 255);
+            }
+
+            40% {
+                visibility: hidden;
+            }
+
+            100% {
+                visibility: hidden;
+                margin-left: 40px;
+                background-color: rgba(255, 255, 255, .0);
+            }
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.sideBarButton').bind('click', function () {
+                $('.container').toggleClass('showMenu');
+            });
+        });
+
+        $(document).ready(function () {
+            $('.search').click(function () {
+                $('.searchBox').toggleClass('showSearch');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="sideBox">
+            <div class="itemContainer">
+                <div class="navItem">
+                    <div class="icon"><span class="fa fa-home"></span></div>
+                    <div class="text">Dashboard</div>
+                </div>
+                <div class="navItem">
+                    <div class="icon profile"><span class="fa fa-user"></span></div>
+                    <div class="text">Profile</div>
+                </div>
+                <div class="navItem">
+                    <div class="icon"><span class="fa fa-bell"></span></div>
+                    <div class="text">Notifications</div>
+                </div>
+                <div class="navItem">
+                    <div class="icon"><span class="fa fa-comment"></span></div>
+                    <div class="text">Messages</div>
+                </div>
+                <div class="navItem">
+                    <div class="icon"><span class="fa fa-gear"></span></div>
+                    <div class="text">Settings</div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="nav">
+                <div class="sideBarButton">
+                    <div class="upperSideButton">
+                        <div class="line short"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="line long"></div>
+                </div>
+                <input type="text" class="searchBox " placeholder="Search ...">
+                <div class="center">
+                    <div class="title">Notifications</div>
+                </div>
+                <div class="search">
+                    <div class="glass"></div>
+                    <div class="handle"></div>
+                </div>
+            </div>
+            <div class="list">
+                <div class="contentLine"></div>
+                <div>
+                    <div class="column">
+                        <div class="white"></div>
+                        <div class="circle first"></div>
+                        <div class="contentBox">
+                            <div class="time">9:24AM</div>
+                            <div class="content"><b>John Walker</b> postes a photo on your wall.</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="white"></div>
+                        <div class="circle"></div>
+                        <div class="contentBox">
+                            <div class="time">8:19AM</div>
+                            <div class="content"><b>Alice Parker</b> commented your last post.</div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="white"></div>
+                        <div class="circle"></div>
+                        <div class="contentBox">
+                            <div class="time">Yesterday</div>
+                            <div class="content"><b>Luke Wayne</b> added you as friend.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

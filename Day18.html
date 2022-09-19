@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(68, 68, 68);
+            border-radius: 1.5%;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .elastic {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            fill: rgb(107, 209, 152);
+        }
+
+        path.line {
+            animation: line-animate 5s infinite;
+        }
+
+        @keyframes line-animate {
+            0% {
+                d: path('M -100 200 Q 200 200, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            15% {
+                d: path('M -100 200 Q 200 -100, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            20% {
+                d: path('M -100 200 Q 200 400, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            25% {
+                d: path('M -100 200 Q 200 0, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            30% {
+                d: path('M -100 200 Q 200 300, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            35% {
+                d: path('M -100 200 Q 200 100, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            40% {
+                d: path('M -100 200 Q 200 250, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            45% {
+                d: path('M -100 200 Q 200 150, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            50% {
+                d: path('M -100 200 Q 200 200, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            65% {
+                d: path('M -100 200 Q 200 500, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            70% {
+                d: path('M -100 200 Q 200 0, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            75% {
+                d: path('M -100 200 Q 200 400, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            80% {
+                d: path('M -100 200 Q 200 100, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            85% {
+                d: path('M -100 200 Q 200 300, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            90% {
+                d: path('M -100 200 Q 200 150, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            95% {
+                d: path('M -100 200 Q 200 250, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+
+            100% {
+                d: path('M -100 200 Q 200 200, 500 200 T 400 200 V 400 H 0 V 0');
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <svg class="elastic">
+            <path class="line"></path>
+        </svg>
+    </div>
+</body>
+
+</html>

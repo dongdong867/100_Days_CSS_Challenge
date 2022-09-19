@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+        integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:500+600);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: #FFFFFF;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+            border-radius: 1%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+        }
+
+        .column {
+            width: 400px;
+            height: 198px;
+            display: flex;
+        }
+
+        .picture {
+            width: 194px;
+            height: 194px;
+            margin-top: 4px;
+            margin-left: 4px;
+            cursor: pointer;
+        }
+
+        .a {
+            background: url(https://100dayscss.com/codepen/13-1.jpg);
+        }
+
+        .b {
+            background: url(https://100dayscss.com/codepen/13-2.jpg);
+        }
+
+        .c {
+            background: url(https://100dayscss.com/codepen/13-3.jpg);
+        }
+
+        .d {
+            background: url(https://100dayscss.com/codepen/13-4.jpg);
+        }
+
+        .square {
+            width: 194px;
+            height: 194px;
+            background-color: rgba(0, 0, 0, .5);
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        .picture:hover .square {
+            opacity: 1;
+            transition: all 0.5s;
+        }
+
+        .picture:hover .redcircle {
+            animation: circlein 0.5s forwards;
+        }
+
+        .redcircle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgb(240, 105, 105);
+            opacity: 1;
+            position: relative;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, .7);
+            animation: circlein-rev 0.5s forwards;
+            font-size: 25px;
+        }
+
+        .plus {
+            position: relative;
+            padding-top: 5px;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        @keyframes circlein {
+            0% {
+                width: 100px;
+                height: 100px;
+                opacity: .5;
+                font-size: 50px;
+            }
+
+            100% {
+                width: 50px;
+                height: 50px;
+                opacity: 1;
+                font-size: 25px;
+            }
+        }
+
+        @keyframes circlein-rev {
+            0% {
+                width: 50px;
+                height: 50px;
+                opacity: 1;
+                font-size: 25px;
+            }
+
+            100% {
+                width: 100px;
+                height: 100px;
+                opacity: .5;
+                font-size: 50px;
+            }
+        }
+
+        .profile {
+            width: 400px;
+            height: 400px;
+        }
+
+        .backphoto {
+            position: absolute;
+            width: 400px;
+            height: 180px;
+            background-image: url(https://100dayscss.com/codepen/13-1-header.jpg);
+            margin-top: -580px;
+            transition: all 1s;
+            transition-delay: 0.4s;
+        }
+
+        .animate .backphoto {
+            margin-top: -396px;
+            transition: all 0.7s;
+        }
+
+        .selfphoto {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-image: url(https://100dayscss.com/codepen/13-1.jpg);
+            background-size: 100px;
+            position: absolute;
+            margin: auto;
+            border: 2px solid #FFFFFF;
+            margin-top: -500px;
+            margin-left: 148px;
+            z-index: 1;
+            transition: all 1s;
+            transition-delay: 0.1s;
+        }
+
+        .animate .selfphoto {
+            margin-top: -270px;
+            transition: all 0.8s;
+            transition-delay: 0.3s;
+        }
+
+        .closebutton {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgb(240, 105, 105);
+            position: absolute;
+            margin-top: -450px;
+            transform: rotate(45deg);
+            margin-left: 340px;
+            color: #FFFFFF;
+            cursor: pointer;
+            z-index: 2;
+            transition: all 1s;
+        }
+
+        .animate .closebutton {
+            margin-top: -380px;
+            transition: all 0.5s;
+            transition-delay: 0.7s;
+        }
+
+        .closebutton:hover {
+            background-color: #FFFFFF;
+            color: rgb(240, 105, 105);
+            transition: all 0.5s;
+        }
+
+        .close {
+            text-align: center;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 25px;
+            padding-bottom: 3px;
+        }
+
+        .bottombox {
+            width: 400px;
+            height: 225px;
+            background-color: rgb(240, 105, 105);
+            position: absolute;
+            z-index: 0;
+            margin-top: 4px;
+            transition: all 1s;
+            transition-delay: 0.4s;
+        }
+
+        .animate .bottombox {
+            margin-top: -220px;
+            transition: all 0.7s;
+        }
+
+        .name {
+            font-family: 'Open Sans';
+            font-size: 15px;
+            color: #FFFFFF;
+            font-weight: lighter;
+            text-align: center;
+            position: relative;
+            padding-top: 70px;
+        }
+
+        .connection {
+            display: flex;
+            width: 250px;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        .bottomButton {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #FFFFFF;
+            border-radius: 50%;
+            text-align: center;
+            margin: auto;
+            color: #FFFFFF;
+            transition: all 0.4s;
+        }
+
+        .bottomButton:hover {
+            background-color: #FFFFFF;
+            color: rgb(240, 105, 105);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, .4);
+        }
+
+        .phone {
+            font-size: 18px;
+            transform: rotate(90deg);
+            margin-top: 11px;
+        }
+
+        .message {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .like {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('.picture').click(function () {
+                $('.profile').toggleClass('animate');
+            });
+        });
+        $(document).ready(function () {
+            $('.closebutton').click(function () {
+                $('.profile').toggleClass('animate');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div class="column">
+            <div class="picture a">
+                <div class="square">
+                    <div class="redcircle">
+                        <div class="plus">+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="picture b">
+                <div class="square">
+                    <div class="redcircle">
+                        <div class="plus">+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="picture c">
+                <div class="square">
+                    <div class="redcircle">
+                        <div class="plus">+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="picture d">
+                <div class="square">
+                    <div class="redcircle">
+                        <div class="plus">+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="backphoto"></div>
+            <div class="selfphoto"></div>
+            <div class="closebutton">
+                <div class="close">+</div>
+            </div>
+            <div class="bottombox">
+                <div class="name">Julia Toth</div>
+                <div class="connection">
+                    <div class="bottomButton"><span class="fa fa-phone phone"></span></div>
+                    <div class="bottomButton"><span class="fa fa-comment message"></span></div>
+                    <div class="bottomButton"><span class="fa fa-heart like"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

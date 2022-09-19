@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(96, 164, 213);
+            border-radius: 1.5%;
+            margin: auto;
+            position: relative;
+            display: flex;
+        }
+
+        .circle {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            left: 155px;
+            animation: circle-animate 5s infinite;
+            top: 155px;
+        }
+
+        .eightangle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 150px;
+            left: 150px;
+            fill: #FFFFFF;
+            animation: eightangle-animate 5s infinite;
+            transform: rotate(22.5deg);
+        }
+
+        .triangle {
+            position: absolute;
+            width: 106px;
+            height: 90px;
+            top: 150px;
+            left: 147px;
+            fill: #FFFFFF;
+            transform: scale(1.15);
+            animation: triangle-animate 5s infinite;
+        }
+
+        .eightangleBorder {
+            width: 260px;
+            height: 260px;
+            position: absolute;
+            top: 70px;
+            left: 70px;
+            border-radius: 50%;
+            animation: eightangleBorder-animate 5s infinite;
+        }
+
+        .bar {
+            width: 5px;
+            height: 40px;
+            background-image: linear-gradient(to top, #FFFFFF 60%, transparent);
+            position: relative;
+        }
+
+        .eight-one {
+            left: 129px;
+        }
+
+        .eight-two {
+            top: -8px;
+            left: 205px;
+            transform: rotate(45deg);
+        }
+
+        .eight-three {
+            transform: rotate(90deg);
+            top: 31px;
+            left: 237.5px;
+        }
+
+        .eight-four {
+            transform: rotate(135deg);
+            top: 66px;
+            left: 207px;
+        }
+
+        .eight-five {
+            transform: rotate(180deg);
+            top: 60px;
+            left: 127px;
+        }
+
+        .eight-six {
+            transform: rotate(225deg);
+            top: -12px;
+            left: 50px;
+        }
+
+        .eight-seven {
+            transform: rotate(270deg);
+            top: -130px;
+            left: 17px;
+        }
+
+        .eight-eight {
+            transform: rotate(315deg);
+            top: -247px;
+            left: 49px;
+        }
+
+        .circleBorder {
+            width: 90px;
+            height: 90px;
+            position: absolute;
+            top: 151.5px;
+            left: 151.5px;
+            border-radius: 50%;
+            border: 3px solid #FFFFFF;
+            animation: circleBorder-animate 5s infinite;
+        }
+
+        .triangleBorder {
+            width: 142px;
+            height: 142px;
+            border-radius: 50%;
+            margin: auto;
+            animation: triangleBorder-animate 5s infinite;
+        }
+
+        .tri-one {
+            top: -50px;
+            left: 68.5px;
+        }
+
+        .tri-two {
+            transform: rotate(120deg);
+            top: 80px;
+            left: 170px;
+        }
+
+        .tri-three {
+            transform: rotate(240deg);
+            top: 40px;
+            left: -30px;
+        }
+
+        @keyframes circle-animate {
+            0% {
+                top: -90px;
+            }
+
+            7% {
+                height: 70px;
+                top: 200px;
+            }
+
+            10% {
+                height: 110px;
+                top: 120px;
+            }
+
+            15% {
+                height: 75px;
+                top: 170px;
+            }
+
+            18% {
+                height: 90px;
+                top: 155px;
+                transform: scale(1);
+            }
+
+            21% {
+                transform: scale(1.25);
+            }
+
+            25% {
+                transform: scale(0);
+            }
+
+            76% {
+                transform: scale(0);
+            }
+
+            80% {
+                transform: scale(1.3);
+            }
+
+            85% {
+                transform: scale(1);
+            }
+
+            90% {
+                top: 155px;
+            }
+
+            100% {
+                top: 490px;
+            }
+        }
+
+        @keyframes eightangle-animate {
+            0% {
+                transform: scale(0);
+            }
+
+            26% {
+                transform: scale(0) rotate(22.5deg);
+            }
+
+            30% {
+                transform: scale(1.25) rotate(22.5deg);
+            }
+
+            35% {
+                transform: scale(1) rotate(22.5deg);
+            }
+
+            40% {
+                transform: scale(1) rotate(22.5deg);
+            }
+
+            45% {
+                transform: scale(1.3) rotate(22.5deg);
+            }
+
+            50% {
+                transform: scale(0) rotate(22.5deg);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        @keyframes triangle-animate {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(0);
+            }
+
+            55% {
+                transform: scale(1.25);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+
+            65% {
+                transform: scale(1);
+            }
+
+            70% {
+                transform: scale(1.3);
+            }
+
+            75% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        @keyframes circleBorder-animate {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            77% {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            79% {
+                opacity: .8;
+            }
+
+            83% {
+                opacity: .8;
+            }
+
+            85% {
+                transform: scale(1.7);
+                opacity: .3;
+            }
+
+            90% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes eightangleBorder-animate {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            28% {
+                opacity: 0;
+            }
+
+            30% {
+                transform: scale(0.48);
+                opacity: 1;
+            }
+
+            35% {
+                opacity: .8;
+            }
+
+            40% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes triangleBorder-animate {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            53% {
+                opacity: 0;
+                transform: scale(0.4);
+            }
+
+            54% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            58% {
+                opacity: .8;
+            }
+
+            60% {
+                transform: scale(1.1);
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="circle"></div>
+        <div class="circleBorder"></div>
+        <svg class="eightangle">
+            <polyline points="30,0 70,0 100,30 100,70 70,100 30,100 0,70 0,30"></polyline>
+        </svg>
+        <div class="eightangleBorder">
+            <div class="bar eight-one"></div>
+            <div class="bar eight-two"></div>
+            <div class="bar eight-three"></div>
+            <div class="bar eight-four"></div>
+            <div class="bar eight-five"></div>
+            <div class="bar eight-six"></div>
+            <div class="bar eight-seven"></div>
+            <div class="bar eight-eight"></div>
+        </div>
+        <svg class="triangle">
+            <polyline points="53,0 106,90 0,90"></polyline>
+        </svg>
+        <div class="triangleBorder">
+            <div class="bar tri-one"></div>
+            <div class="bar tri-two"></div>
+            <div class="bar tri-three"></div>
+        </div>
+    </div>
+</body>
+
+</html>

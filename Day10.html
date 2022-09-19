@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+        integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+        crossorigin="anonymous"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,400);
+        @import url(https://100dayscss.com/codepen/css/font-awesome.min.css);
+
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(76, 76, 76);
+            border-radius: 2%;
+            margin: auto;
+        }
+
+        .container {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(36, 36, 36);
+            border-radius: 50%;
+            margin: auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 10px solid rgb(58, 58, 58);
+        }
+
+        .innercircle {
+            width: 170px;
+            height: 170px;
+            background-color: inherit;
+            border-radius: 50%;
+            margin: auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='white' stroke-width='4' stroke-dasharray='2%2c 8.47' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+            border-radius: 50%;
+        }
+
+        .content {
+            position: relative;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #FFFFFF;
+            font-family: 'Open Sans';
+        }
+
+        .date {
+            font-size: 12px;
+        }
+
+        .time {
+            font-size: 40px;
+            font-weight: 600;
+            margin-top: -5px;
+            margin-bottom: -5px;
+        }
+
+        .information {
+            font-size: 12px;
+            display: flex;
+        }
+
+        .heart {
+            color: rgb(230, 102, 97);
+            position: absolute;
+            margin-top: 3px;
+            margin-left: 35px;
+            animation-name: pump;
+            animation-duration: 0.4s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .words {
+            margin-left: 50px;
+        }
+
+        .cal {
+            margin-left: 10px;
+        }
+
+        .spinner {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            margin-top: -120px;
+            margin-left: 100px;
+            border-radius: 50%;
+            stroke-dashoffset: 2000;
+            stroke-dasharray: 600;
+            animation: spin 5s linear infinite;
+            transform: rotate(-90deg);
+        }
+
+        .circle {
+            fill: transparent;
+            stroke: rgb(230, 102, 97);
+            stroke-width: 3px;
+        }
+
+        @keyframes pump {
+            0% {
+                font-size: 11px;
+            }
+
+            100% {
+                font-size: 12px;
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                stroke-dashoffset: 1200;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="container">
+            <div class="innercircle">
+                <div class="content">
+                    <div class="date">MON 15 JAN 2015</div>
+                    <div class="time">11:42</div>
+                    <div class="information">
+                        <span class="fa fa-heart heart"></span>
+                        <div class="words">81<span class="cal">1248 KCAL</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg class="spinner">
+            <g>
+                <circle cx="100" cy="100" r="92" class="circle"></circle>
+            </g>
+        </svg>
+    </div>
+</body>
+
+</html>
